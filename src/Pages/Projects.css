@@ -1,0 +1,31 @@
+.project-card {
+    display: inline-block;
+    margin: 10px;
+    border: 5px solid rgba(128, 128, 128, 0.5);
+    text-align: center;
+    text-decoration: none;
+    width: 45%;
+    background-color: rgba(128, 128, 128, 0.5);
+    /* Ajusta el ancho según sea necesario */
+}
+
+.project-image {
+    width: 100%;
+    /* Ajusta el tamaño de la imagen */
+    height: auto;
+}
+
+.project-title {
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: white;
+}
+
+.project-description {
+    font-size: large;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

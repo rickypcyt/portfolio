@@ -1,0 +1,105 @@
+/* Reset */
+body {
+    font-family: Roboto;
+    margin: 0;
+    padding: 0;
+    font-size: larger;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    /* Ajustar el ancho al 100% para que coincida con el viewport */
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Typography */
+h1 {
+    font-size: 2em;
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Home Container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.description-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background-color: rgba(128, 128, 128, 0.5);
+    color: white;
+    position: relative;
+    z-index: 9999;
+    width: auto;
+    /* Asegurar que el ancho sea 100% */
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 91%;
+    z-index: 9999;
+}
+
+/* Navbar links */
+.navbar-links {
+    display: flex;
+}
+
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: large;
+}
+
+.navbar-link:hover {
+    font-weight: bold;
+}
+
+.navbar-link:first-child {
+    margin-left: 0;
+}
+
+/* Navbar y h1 */
+.navbar-title,
+.navbar-link {
+    color: white;
+    text-decoration: none;
+    font-size: large;
+}
+
+.paragraph-container {
+    margin: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: default;
+    text-align: center;
+}
+
+.navbar-link-projects {
+    color: khaki;
+    text-decoration: none;
+    font-size: large;
+}
