@@ -30,19 +30,7 @@ function Home() {
         <StarsBackground />
         <div className="paragraph-container">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non
-            risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing
-            nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas
-            ligula massa, varius a, semper congue, euismod non, mi. Proin
-            porttitor, orci nec nonummy molestie, enim est eleifend mi, non
-            fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa,
-            scelerisque vitae, consequat in, pretium a, enim. Pellentesque
-            congue. Ut in risus volutpat libero pharetra tempor. Cras vestibulum
-            bibendum augue. Praesent egestas leo in pede. Praesent blandit odio
-            eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum
-            ante ipsum primis in faucibus orci luctus et ultrices posuere
-            cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque
-            fermentum. Maecenas adipiscing ante non diam sodales hendrerit.
+            Hey there! I'm Ricky, and welcome to my portfolio. Here, I showcase the array of projects I've been passionately coding over the years. From my earliest ventures into programming to my most recent endeavors, this portfolio encapsulates my journey and growth as a developer. Each project represents a unique challenge I've tackled, whether it's crafting sleek user interfaces, optimizing algorithms for efficiency, or diving into the intricacies of backend development. Join me on this journey through my digital creations, and let's explore the world of code together.
           </p>
         </div>
       </div>
