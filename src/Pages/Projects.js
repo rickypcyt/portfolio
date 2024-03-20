@@ -11,14 +11,14 @@ function Home() {
       id: 1,
       title: "Personal Blog",
       description: "A digital place where I share my thoughts, experiences, and reflections on life, coding, and the world around me.",
-      imageUrl: "https://i.imgur.com/HleDYr0.png",
+      imageUrl: "https://i.imgur.com/HleDYr0.png?1",
       linkUrl: "https://personal-blog2a.vercel.app/" // Cambia esto a la URL deseada para el proyecto 1
     },
     {
       id: 2,
       title: "Image Uploader Collage Style",
       description: "Upload images and enjoy seeing them creatively arranged in captivating collages.",
-      imageUrl: "https://i.imgur.com/2Pscv75.png",
+      imageUrl: "https://i.imgur.com/2Pscv75.png?1",
       linkUrl: "https://webmural.vercel.app/" // Cambia esto a la URL deseada para el proyecto 2
     },
     {
