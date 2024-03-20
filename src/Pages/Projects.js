@@ -11,7 +11,7 @@ function Home() {
       id: 1,
       title: "Personal Blog",
       description: "A digital place where I share my thoughts, experiences, and reflections on life, coding, and the world around me.",
-      imageUrl: "https://i.imgur.com/HleDYr0.png?1",
+      imageUrl: "https://i.imgur.com/QFwEvte.png",
       linkUrl: "https://personal-blog2a.vercel.app/" // Cambia esto a la URL deseada para el proyecto 1
     },
     {
