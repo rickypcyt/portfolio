@@ -18,7 +18,7 @@ function Home() {
       id: 2,
       title: "Image Uploader Collage Style",
       description: "Upload images and enjoy seeing them creatively arranged in captivating collages.",
-      imageUrl: "https://i.imgur.com/NfapX14.png",
+      imageUrl: "https://imgur.com/2Pscv75",
       linkUrl: "https://webmural.vercel.app/" // Cambia esto a la URL deseada para el proyecto 2
     },
     {
