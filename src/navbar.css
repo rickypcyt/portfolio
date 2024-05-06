@@ -3,9 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5%;
-    padding-top: 2.5%;
-    padding-bottom: 0;
+    padding: 2.5% 5%;
     color: white;
     position: relative;
     z-index: 9999;
@@ -18,7 +16,6 @@
 /* Navbar links */
 .navbar-links {
     display: flex;
-    margin-right: 35px;
 }
 
 .navbar-link {

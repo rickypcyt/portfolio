@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar"; // Importa el componente Navbar
 import StarsBackground from "../StarsBackground";
+import "./about.css"
 
 function Home() {
   return (
@@ -9,7 +10,7 @@ function Home() {
       <Navbar /> {/* Aquí se integra el componente Navbar */}
       <div className="content-container">
         <StarsBackground />
-        <div className="paragraph-container">
+        <div className="paragraph-container2">
           <p>
             "I'm a passionate 20-year-old engineering student who finds joy and
             fulfillment in the realm of coding as a hobby. While pursuing my

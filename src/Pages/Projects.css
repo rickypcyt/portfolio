@@ -1,6 +1,7 @@
 .project-card {
+
     display: inline-block;
-    margin: 10px;
+    justify-content: space-between;
     border: 5px solid rgba(128, 128, 128, 0.5);
     text-align: center;
     text-decoration: none;
@@ -17,8 +18,7 @@
 
 .project-title {
     font-size: large;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 5.5%;
     text-decoration: none;
     color: white;
 }
@@ -28,4 +28,26 @@
     color: white;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.paragraph-container3 {
+    /* Cambia el ancho del contenedor de párrafo */
+    margin: 2.5% 5%;
+    /* Alinea el texto a la izquierda */
+
+}
+
+.paragraph-container3 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* Para que las tarjetas se envuelvan si no caben todas en una sola línea */
+}
+
+.project-card {
+    width: calc(30% - 10px);
+    /* Calcula el ancho de la tarjeta para que haya un espacio entre ellas */
+    margin-bottom: 20px;
+    /* Agrega un margen inferior para separar las tarjetas */
+    /* Puedes ajustar estos valores según sea necesario */
 }

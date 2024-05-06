@@ -47,7 +47,7 @@ function Home() {
       {/* Agregar un div contenedor para el contenido */}
       <div className="content-container">
         <StarsBackground />
-        <div className="paragraph-container">
+        <div className="paragraph-container3">
           {projects.map((project) => (
             <a href={project.linkUrl} key={project.id} className="project-card">
               <h3 className="project-title">{project.title}</h3>

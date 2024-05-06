@@ -1,0 +1,8 @@
+.paragraph-container2 {
+    width: 90%;
+    /* Cambia el ancho del contenedor de párrafo */
+    text-align: justify;
+    /* Alinea el texto a la izquierda */
+    margin: 2.5% 5%;
+
+}
