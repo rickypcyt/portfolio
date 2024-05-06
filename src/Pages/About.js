@@ -1,29 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../Home.css";
+import Navbar from "../Navbar"; // Importa el componente Navbar
 import StarsBackground from "../StarsBackground";
 
 function Home() {
   return (
     <div>
-      <nav className="navbar">
-        <div className="navbar-title">
-          <Link to="/" className="navbar-link">
-            Ricky's Portfolio
-          </Link>{" "}
-        </div>
-        <div className="navbar-links">
-          <Link to="/projects" className="navbar-link">
-            Projects
-          </Link>
-          <Link to="/about" className="navbar-link" style={{ color: "khaki" }}>
-            About
-          </Link>
-          <Link to="/contact" className="navbar-link">
-            Contact
-          </Link>
-        </div>
-      </nav>
+      <Navbar /> {/* Aquí se integra el componente Navbar */}
       <div className="content-container">
         <StarsBackground />
         <div className="paragraph-container">

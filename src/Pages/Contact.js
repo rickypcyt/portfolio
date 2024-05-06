@@ -1,30 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../Home.css";
+import Navbar from "../Navbar"; // Importa el componente Navbar
 import StarsBackground from "../StarsBackground";
+import "../Home.css";
 
 function Home() {
   return (
     <div>
       {/* Navbar */}
-      <nav className="navbar">
-        <div className="navbar-title">
-          <Link to="/" className="navbar-link">
-            Ricky's Portfolio
-          </Link>
-        </div>
-        <div className="navbar-links">
-          <Link to="/projects" className="navbar-link">
-            Projects
-          </Link>
-          <Link to="/about" className="navbar-link">
-            About
-          </Link>
-          <Link to="/contact" className="navbar-link" style={{ color: "khaki" }}>
-            Contact
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
       
       {/* Content */}
       <div className="content-container">
