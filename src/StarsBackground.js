@@ -1,57 +1,71 @@
 import React, { useState, useEffect } from "react";
-import "./stars.css"; // Importa el archivo CSS
+import "./stars.css"; // Importing CSS styles for stars
 
+const maxStars = 30; // Maximum number of stars on the screen
+
+// Function to generate a single star with random position and speed
 function generateStar() {
   return {
-    left: Math.random() * 100, // Posición horizontal aleatoria
-    top: Math.random() * 100, // Posición vertical aleatoria
-    speedX: (Math.random() - 0.25) * 0.25, // Velocidad horizontal aleatoria (-0.5 a 0.5)
-    speedY: (Math.random() - 0.25) * 0.25 // Velocidad vertical aleatoria (-0.5 a 0.5)
+    left: Math.random() * 100, // Random horizontal position
+    top: Math.random() * 100, // Random vertical position
+    speedX: (Math.random() - 0.5) * 0.25, // Random horizontal speed
+    speedY: (Math.random() - 0.5) * 0.25 // Random vertical speed
   };
 }
 
+// Function to generate an array of stars with a specified count
 function generateStars(count) {
-  const stars = [];
+  const stars = []; // Array to store generated stars
+
+  // Loop to generate 'count' number of stars
   for (let i = 0; i < count; i++) {
+    // Generating a star using the 'generateStar()' function and adding it to the 'stars' array
     stars.push(generateStar());
   }
+
+  // Returning the array of generated stars
   return stars;
 }
 
+// Functional component for the stars background
 function StarsBackground() {
-  const [stars, setStars] = useState(generateStars(25));
-  const maxStars = 50;
+  const [stars, setStars] = useState(generateStars(15)); // State to store stars array
 
+  // Function to add new stars periodically
   useEffect(() => {
-    // Función para generar nuevas estrellas
     function addStar() {
-      if (stars.length < maxStars) {
+      // Adding a new star with a probability of 10% until the maximum number of stars is reached
+      if (stars.length < maxStars && Math.random() > 0.9) {
         setStars(prevStars => [...prevStars, generateStar()]);
       }
     }
 
-    // Intervalo para agregar nuevas estrellas cada cierto tiempo
-    const intervalId = setInterval(addStar, 1000);
+    // Interval to add stars every 150 milliseconds
+    const intervalId = setInterval(addStar, 150);
 
-    // Limpia el intervalo al desmontar el componente
+    // Cleaning up the interval when the component unmounts
     return () => clearInterval(intervalId);
-  }, [stars.length]); // Se ejecuta cada vez que cambia la longitud de la lista de estrellas
+  }, [stars.length]);
 
-  // Función para actualizar la posición de las estrellas
+  // Function to update star positions
   function updateStars() {
     setStars(prevStars => {
       return prevStars.map(star => {
         let newLeft = star.left + star.speedX;
         let newTop = star.top + star.speedY;
 
-        // Rebotar en los bordes de la ventana
-        if (newLeft < 0 || newLeft > 100) {
+  // Check if the star has reached the left or right edge of the window        
+      if (newLeft < 0 || newLeft > 100) {
+      // If it has, reverse the horizontal speed to make it bounce off the edge
           star.speedX = -star.speedX;
         }
+    // Check if the star has reached the top or bottom edge of the window
         if (newTop < 0 || newTop > 100) {
+      // If it has, reverse the vertical speed to make it bounce off the edge
           star.speedY = -star.speedY;
         }
 
+      // Update the position of the star with the new calculated values
         return {
           ...star,
           left: newLeft,
@@ -61,12 +75,13 @@ function StarsBackground() {
     });
   }
 
-  // Llama a la función para actualizar la posición de las estrellas en cada frame
+  // Function to update star positions on each frame
   useEffect(() => {
     const animationFrame = requestAnimationFrame(updateStars);
-    return () => cancelAnimationFrame(animationFrame);
+    return () => cancelAnimationFrame(animationFrame); // Cleaning up animation frame
   }, [stars]);
 
+  // Rendering stars as div elements with CSS animation for twinkling effect
   return (
     <div
       style={{
@@ -88,9 +103,10 @@ function StarsBackground() {
             left: `${star.left}%`,
             height: "2px",
             width: "2px",
-            background: "#fff",
+            background: "#808080",
             borderRadius: "50%",
-            animation: "twinkle 3s infinite"
+            animation: "twinkle 2s infinite", // CSS animation for twinkling effect
+            animationTimingFunction: "ease-in-out" // Smooth animation timing
           }}
         />
       ))}

@@ -11,14 +11,12 @@
     /* Agregué un color de fondo para mayor contraste */
 }
 
-.navbar-title {}
-
 /* Navbar links */
 .navbar-links {
     display: flex;
 }
 
-.navbar-link {
+.navbar-link {  
     color: white;
     text-decoration: none;
     margin-left: 20px;

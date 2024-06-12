@@ -2,16 +2,17 @@
 
     display: inline-block;
     justify-content: space-between;
-    border: 5px solid rgba(128, 128, 128, 0.5);
+    border: 2px dashed whitesmoke; /* Puedes ajustar el grosor y el color del borde según tu preferencia */
     text-align: center;
     text-decoration: none;
     width: 45%;
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(35, 32, 32, 0.532);
     /* Ajusta el ancho según sea necesario */
 }
 
 .project-image {
-    width: 100%;
+    width: 90%; 
+
     /* Ajusta el tamaño de la imagen */
     height: auto;
 }
@@ -32,7 +33,7 @@
 
 .paragraph-container3 {
     /* Cambia el ancho del contenedor de párrafo */
-    margin: 2.5% 5%;
+    margin: 0.5% 5%;
     /* Alinea el texto a la izquierda */
 
 }
@@ -45,9 +46,9 @@
 }
 
 .project-card {
-    width: calc(30% - 10px);
+    width: 31%;
     /* Calcula el ancho de la tarjeta para que haya un espacio entre ellas */
-    margin-bottom: 20px;
+    margin-bottom: 3%;
     /* Agrega un margen inferior para separar las tarjetas */
     /* Puedes ajustar estos valores según sea necesario */
 }
