@@ -4,17 +4,26 @@ import Navbar from "../Navbar"; // Importa el componente Navbar
 import StarsBackground from "../StarsBackground";
 import "../Home.css";
 
+// Asegúrate de que las rutas sean correctas
+import EmailIcon from "./svgs/icons8-gmail.svg";
+import GitHubIcon from "./svgs/github-142-svgrepo-com.svg";
+import SocialMediaIcon from "./svgs/whatsapp-svgrepo-com.svg";
+
 function Home() {
   return (
     <div>
-      {/* Navbar */}
-      <Navbar />
-      
       {/* Content */}
-      <div className="content-container">
-        <StarsBackground />
-        <div className="paragraph-container2">
-          <p>"In this page, you'll find various means to get in touch with me, ensuring seamless communication and collaboration. Whether you prefer traditional methods like phone calls and emails or seek alternative ways to connect, such as through social media platforms, I've provided multiple avenues to reach me. Feel free to explore and utilize the contact information provided here to initiate discussions, share feedback, or inquire about any queries you may have."</p>
+      <div className="paragraph-container2">
+        <div className="icons-container">
+        <a href="https://github.com/rickypcyt" target="_blank" rel="noopener noreferrer">
+            <img src={GitHubIcon} alt="GitHub Icon" className="icon white-icon" />
+          </a>
+          <a href="https://wa.me/686252372" target="_blank" rel="noopener noreferrer">
+            <img src={SocialMediaIcon} alt="Social Media Icon" className="icon white-icon" />
+          </a>
+          <a href="mailto:rickypcyt@gmail.com">
+            <img src={EmailIcon} alt="Email Icon" className="icon white-icon" />
+          </a>
         </div>
       </div>
     </div>

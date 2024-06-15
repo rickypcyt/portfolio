@@ -1,8 +1,8 @@
 .paragraph-container2 {
-    width: 90%;
-    /* Cambia el ancho del contenedor de párrafo */
-    text-align: justify;
-    /* Alinea el texto a la izquierda */
-    margin: 2.5% 5%;
-
+    width: auto; /* Cambia el ancho del contenedor de párrafo */
+    text-align: center; /* Alinea el texto a la izquierda */
+    /* Agregamos el borde con guiones separados */
+    margin: 2% 5%;
+    margin-top: 0;
+    border: 2px dashed white; /* Puedes ajustar el grosor y el color del borde según tu preferencia */
 }

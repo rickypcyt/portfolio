@@ -33,7 +33,7 @@
 
 .paragraph-container3 {
     /* Cambia el ancho del contenedor de párrafo */
-    margin: 0.5% 5%;
+    margin: 0% 5%;
     /* Alinea el texto a la izquierda */
 
 }
@@ -48,7 +48,7 @@
 .project-card {
     width: 31%;
     /* Calcula el ancho de la tarjeta para que haya un espacio entre ellas */
-    margin-bottom: 3%;
+    margin-bottom: 2.5%;
     /* Agrega un margen inferior para separar las tarjetas */
     /* Puedes ajustar estos valores según sea necesario */
 }
