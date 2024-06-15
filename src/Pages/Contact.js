@@ -18,7 +18,7 @@ function Home() {
         <a href="https://github.com/rickypcyt" target="_blank" rel="noopener noreferrer">
             <img src={GitHubIcon} alt="GitHub Icon" className="icon white-icon" />
           </a>
-          <a href="https://wa.me/686252372" target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/+34686252372" target="_blank" rel="noopener noreferrer">
             <img src={SocialMediaIcon} alt="Social Media Icon" className="icon white-icon" />
           </a>
           <a href="mailto:rickypcyt@gmail.com">
