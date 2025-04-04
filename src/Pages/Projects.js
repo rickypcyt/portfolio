@@ -1,7 +1,6 @@
 import React from "react";
-import "./Projects.css";
 
-function Home() {
+function Projects() {
   // Definir información de proyectos
   const projects = [
     {
@@ -49,21 +48,28 @@ function Home() {
   ];
 
   return (
-    <div>
-      {/* Agregar un div contenedor para el contenido */}
-      <div className="content-container">
-        <div className="paragraph-container3">
-          {projects.map((project) => (
-            <a href={project.linkUrl} key={project.id} className="project-card">
-              <h3 className="project-title">{project.title}</h3>
-              <img src={project.imageUrl} alt={project.title} className="project-image" />
-              <p className="project-description">{project.description}</p>
-            </a>
-          ))}
-        </div>
-      </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => (
+        <a 
+          href={project.linkUrl} 
+          key={project.id} 
+          className="card hover:scale-105 transition-transform duration-200"
+          target="_blank" 
+          rel="noopener noreferrer"
+        >
+          <div className="p-6">
+            <h3 className="text-xl font-bold mb-4 text-white">{project.title}</h3>
+            <img 
+              src={project.imageUrl} 
+              alt={project.title} 
+              className="w-full h-48 object-cover rounded-lg mb-4"
+            />
+            <p className="text-gray-300">{project.description}</p>
+          </div>
+        </a>
+      ))}
     </div>
   );
 }
 
-export default Home;
+export default Projects;

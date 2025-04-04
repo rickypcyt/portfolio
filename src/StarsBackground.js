@@ -1,117 +1,101 @@
-import React, { useState, useEffect } from "react";
-import "./stars.css"; // Importing CSS styles for stars
+import React, { useEffect, useRef } from 'react';
 
-const maxStars = 30; // Maximum number of stars on the screen
-
-// Function to generate a single star with random position and speed
-function generateStar() {
-  return {
-    left: Math.random() * 100, // Random horizontal position
-    top: Math.random() * 100, // Random vertical position
-    speedX: (Math.random() - 0.5) * 0.25, // Random horizontal speed
-    speedY: (Math.random() - 0.5) * 0.25 // Random vertical speed
-  };
-}
-
-// Function to generate an array of stars with a specified count
-function generateStars(count) {
-  const stars = []; // Array to store generated stars
-
-  // Loop to generate 'count' number of stars
-  for (let i = 0; i < count; i++) {
-    // Generating a star using the 'generateStar()' function and adding it to the 'stars' array
-    stars.push(generateStar());
-  }
-
-  // Returning the array of generated stars
-  return stars;
-}
-
-// Functional component for the stars background
 function StarsBackground() {
-  const [stars, setStars] = useState(generateStars(15)); // State to store stars array
+    const canvasRef = useRef(null);
+    const starsRef = useRef([]);
+    const animationFrameRef = useRef(null);
 
-  // Function to add new stars periodically
-  useEffect(() => {
-    function addStar() {
-      // Adding a new star with a probability of 10% until the maximum number of stars is reached
-      if (stars.length < maxStars && Math.random() > 0.9) {
-        setStars(prevStars => [...prevStars, generateStar()]);
-      }
-    }
-
-    // Interval to add stars every 150 milliseconds
-    const intervalId = setInterval(addStar, 150);
-
-    // Cleaning up the interval when the component unmounts
-    return () => clearInterval(intervalId);
-  }, [stars.length]);
-
-  // Function to update star positions
-  function updateStars() {
-    setStars(prevStars => {
-      return prevStars.map(star => {
-        let newLeft = star.left + star.speedX;
-        let newTop = star.top + star.speedY;
-
-  // Check if the star has reached the left or right edge of the window        
-      if (newLeft < 0 || newLeft > 100) {
-      // If it has, reverse the horizontal speed to make it bounce off the edge
-          star.speedX = -star.speedX;
-        }
-    // Check if the star has reached the top or bottom edge of the window
-        if (newTop < 0 || newTop > 100) {
-      // If it has, reverse the vertical speed to make it bounce off the edge
-          star.speedY = -star.speedY;
-        }
-
-      // Update the position of the star with the new calculated values
-        return {
-          ...star,
-          left: newLeft,
-          top: newTop
+    useEffect(() => {
+        const canvas = canvasRef.current;
+        const ctx = canvas.getContext('2d');
+        
+        // Ajustar el tamaño del canvas al tamaño de la ventana
+        const resizeCanvas = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
         };
-      });
-    });
-  }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
 
-  // Function to update star positions on each frame
-  useEffect(() => {
-    const animationFrame = requestAnimationFrame(updateStars);
-    return () => cancelAnimationFrame(animationFrame); // Cleaning up animation frame
-  }, [stars]);
+        // Crear estrellas
+        const createStars = () => {
+            const stars = [];
+            const starCount = 200; // Más estrellas para mejor efecto
+            
+            for (let i = 0; i < starCount; i++) {
+                stars.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 2 + 1,
+                    opacity: Math.random() * 0.5 + 0.5,
+                    speed: Math.random() * 0.2 + 0.1,
+                    angle: Math.random() * Math.PI * 2,
+                    twinkleSpeed: Math.random() * 0.02 + 0.01,
+                    twinkleDirection: Math.random() > 0.5 ? 1 : -1
+                });
+            }
+            
+            return stars;
+        };
 
-  // Rendering stars as div elements with CSS animation for twinkling effect
-  return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        zIndex: -1
-      }}
-    >
-      {stars.map((star, index) => (
-        <div
-          key={index}
-          className="star"
-          style={{
-            position: "absolute",
-            top: `${star.top}%`,
-            left: `${star.left}%`,
-            height: "2px",
-            width: "2px",
-            background: "#808080",
-            borderRadius: "50%",
-            animation: "twinkle 2s infinite", // CSS animation for twinkling effect
-            animationTimingFunction: "ease-in-out" // Smooth animation timing
-          }}
+        starsRef.current = createStars();
+
+        // Función de animación optimizada
+        const animate = () => {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            starsRef.current.forEach(star => {
+                // Actualizar posición
+                star.x += Math.cos(star.angle) * star.speed;
+                star.y += Math.sin(star.angle) * star.speed;
+                
+                // Reaparecer en el otro lado si sale de la pantalla
+                if (star.x < 0) star.x = canvas.width;
+                if (star.x > canvas.width) star.x = 0;
+                if (star.y < 0) star.y = canvas.height;
+                if (star.y > canvas.height) star.y = 0;
+                
+                // Actualizar opacidad para efecto de parpadeo
+                star.opacity += star.twinkleSpeed * star.twinkleDirection;
+                if (star.opacity > 1) {
+                    star.opacity = 1;
+                    star.twinkleDirection = -1;
+                } else if (star.opacity < 0.3) {
+                    star.opacity = 0.3;
+                    star.twinkleDirection = 1;
+                }
+                
+                // Dibujar estrella
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
+                ctx.fill();
+                
+                // Añadir efecto de brillo
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'white';
+            });
+            
+            animationFrameRef.current = requestAnimationFrame(animate);
+        };
+
+        animate();
+
+        return () => {
+            window.removeEventListener('resize', resizeCanvas);
+            if (animationFrameRef.current) {
+                cancelAnimationFrame(animationFrameRef.current);
+            }
+        };
+    }, []);
+
+    return (
+        <canvas
+            ref={canvasRef}
+            className="fixed top-0 left-0 w-full h-full pointer-events-none z-0"
         />
-      ))}
-    </div>
-  );
+    );
 }
 
 export default StarsBackground;

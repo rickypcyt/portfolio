@@ -1,3 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-900 text-white;
+    font-family: Arial, sans-serif;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl p-6 shadow-card backdrop-blur-sm relative;
+    background: transparent;
+    border: 2px solid rgba(75, 85, 99, 0.3);
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 0.75rem;
+    padding: 2px;
+    background: radial-gradient(circle, #4a5568 1px, transparent 1px);
+    background-size: 20px 20px;
+    -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .card-title {
+    @apply text-4xl font-bold mb-6 text-center;
+  }
+
+  .card-subtitle {
+    @apply text-2xl font-bold mb-4 text-center;
+  }
+
+  .card-text {
+    @apply text-base text-gray-300;
+  }
+
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white;
+  }
+
+  .btn-secondary {
+    @apply bg-gray-700 hover:bg-gray-600 text-white;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+}
+
 /* Reset de estilos */
 html, body, #root {
   margin: 0;
@@ -8,14 +78,10 @@ html, body, #root {
 
 /* Estilos globales */
 body {
-  font-family: 'Quicksand', sans-serif;
-  /* Cambia la fuente a Quicksand */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #000;
-  /* Color de fondo predeterminado */
   color: white;
-  /* Color de texto predeterminado */
 }
 
 /* Clase para centrar contenido */
@@ -26,7 +92,6 @@ body {
 /* Estilos del encabezado */
 .App-header {
   background-color: #282c34;
-  /* Color de fondo del encabezado */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -39,7 +104,6 @@ body {
 /* Estilos del enlace */
 .App-link {
   color: #61dafb;
-  /* Color del enlace */
 }
 
 .main {
