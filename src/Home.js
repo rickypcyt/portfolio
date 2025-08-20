@@ -6,9 +6,9 @@ import Contact from "./Pages/Contact";
 function Home() {
     return (
         <div className="min-h-screen">
-            <div className="max-w-[95%] mx-auto px-4 py-8">
-                
-                <div className="space-y-12">
+            <div className="max-w-[95%] mx-auto px-3 sm:px-4 py-6 sm:py-8">
+
+                <div className="space-y-8 sm:space-y-12">
                     {/* Home Section */}
                     <div id="home-section" className="card text-xl">
                         <div className="text-center">
@@ -24,7 +24,7 @@ function Home() {
 
                     {/* Projects Section */}
                     <div id="projects-section" className="card">
-                        <h2 className="card-title mb-10">Projects</h2>
+                        <h2 className="card-title">Projects</h2>
                         <div className="projectview-home">
                             <Projects />
                         </div>
