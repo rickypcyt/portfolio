@@ -1,5 +1,4 @@
 import React from "react";
-import StarsBackground from "./StarsBackground";
 import Projects from "./Pages/Projects";
 import About from "./Pages/About";
 import Contact from "./Pages/Contact";
@@ -8,11 +7,10 @@ function Home() {
     return (
         <div className="min-h-screen">
             <div className="max-w-[95%] mx-auto px-4 py-8">
-                <StarsBackground />
                 
                 <div className="space-y-12">
                     {/* Home Section */}
-                    <div id="home-section text-xl" className="card">
+                    <div id="home-section" className="card text-xl">
                         <div className="text-center">
                             <h1 className="card-title mb-0">Rickypcyt's Portfolio</h1>
                         </div>

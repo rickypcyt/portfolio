@@ -7,8 +7,8 @@ function Projects() {
       id: 8,
       title: "Uni Tracker",
       description: "Application for managing university tasks and activities. Built with Vite.js, React, and Supabase as the backend.",
-      imageUrl: "https://i.imgur.com/4COvNPH.png", // Replace with actual image
-      linkUrl: "https://github.com/rickypcyt/vitejs-uni-tracker",
+      imageUrl: "/images/utthumb.png", // Local image from public/images
+      linkUrl: "https://github.com/rickypcyt/unitracker",
       technologies: ["Vite.js", "React", "Supabase", "Tailwind CSS"]
     },
     {
@@ -101,18 +101,22 @@ function Projects() {
   const ProjectCard = ({ project }) => (
     <a 
       href={project.linkUrl} 
-      className="card hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/20"
+      className="card mini-card transition-all duration-300"
       target="_blank" 
       rel="noopener noreferrer"
     >
-      <div className="p-6 h-full flex flex-col">
-        <h3 className="text-xl font-bold mb-4 text-white text-center">{project.title}</h3>
-        <img 
-          src={project.imageUrl} 
-          alt={project.title} 
-          className="w-full h-48 object-cover rounded-lg mb-4"
-        />
-        <p className="text-gray-300 mb-4 flex-grow">{project.description}</p>
+      <div className="p-4 md:p-6 h-full flex flex-col">
+        <h3 className="text-lg sm:text-xl md:text-2xl font-bold mb-4 text-white text-center">{project.title}</h3>
+        <div className="relative w-full h-40 sm:h-52 md:h-60 rounded-lg overflow-hidden mb-4 bg-black/40">
+          <img 
+            src={project.imageUrl} 
+            alt={`${project.title} preview`} 
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 w-full h-full object-contain"
+          />
+        </div>
+        <p className="text-sm sm:text-base text-gray-300 mb-4 flex-grow">{project.description}</p>
         <div className="flex flex-wrap gap-2 mt-auto">
           {project.technologies.map((tech, index) => (
             <span 
@@ -128,11 +132,11 @@ function Projects() {
   );
 
   return (
-    <div className="space-y-12">
+    <div className="max-w-[95%] mx-auto px-4 py-8 space-y-10">
       {/* Web Projects Section */}
       <div>
-        <h2 className="text-3xl font-bold mb-8 text-center">Web</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center">Web</h2>
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6">
           {webProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
@@ -141,8 +145,8 @@ function Projects() {
 
       {/* Non-Web Projects Section */}
       <div>
-        <h2 className="text-3xl font-bold mb-8 text-center">Non-Web</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8 text-center">Non-Web</h2>
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6">
           {nonWebProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

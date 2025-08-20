@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <div>
-        <StarsBackground /> {<StarsBackground/>}
+        <StarsBackground />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />

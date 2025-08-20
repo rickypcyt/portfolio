@@ -4,7 +4,7 @@
 
 @layer base {
   body {
-    @apply bg-gray-900 text-white;
+    @apply bg-black text-white;
     font-family: Arial, sans-serif;
   }
 }
@@ -16,7 +16,12 @@
     border: 2px solid rgba(75, 85, 99, 0.3);
   }
 
-  .card::before {
+  .mini-card {
+    position: relative; /* ensure ::before anchors to this element */
+    border: 2px solid rgba(75, 85, 99, 0.3);
+  }
+
+  .mini-card::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -27,9 +32,26 @@
     -webkit-mask: 
       linear-gradient(#fff 0 0) content-box, 
       linear-gradient(#fff 0 0);
+    mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
+    opacity: 0.25;
     pointer-events: none;
+  }
+
+  /* Shiny border on hover only for mini cards - instant change */
+  .mini-card {
+    transition: none;
+  }
+  .mini-card:hover {
+    /* brighter, lighter blue glow */
+    border-color: rgba(96, 165, 250, 0.8); /* blue-400 */
+    box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.6), 0 0 24px rgba(96, 165, 250, 0.35);
+  }
+  .mini-card:hover::before {
+    opacity: 0.6;
   }
 
   .card-title {
@@ -68,62 +90,9 @@
   }
 }
 
-/* Reset de estilos */
 html, body, #root {
   margin: 0;
   padding: 0;
   width: 100%;
   height: 100%;
-}
-
-/* Estilos globales */
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #000;
-  color: white;
-}
-
-/* Clase para centrar contenido */
-.App {
-  text-align: center;
-}
-
-/* Estilos del encabezado */
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-/* Estilos del enlace */
-.App-link {
-  color: #61dafb;
-}
-
-.main {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  height: 1px;
-  width: 1px;
-  background-color: #fff;
-  border-radius: 50%;
-  box-shadow: -24vw -44vh 2px 2px #fff, 38vw -4vh 0px 0px #fff, -20vw -48vh 1px 2px #fff, -39vw 38vh 3px 1px #fff, -42vw -11vh 0px 3px #fff, 12vw 15vh 3px 3px #fff, 42vw 6vh 3px 2px #fff, -8vw 9vh 0px 2px #fff, 34vw -38vh 1px 0px #fff, -17vw 45vh 3px 1px #fff, 22vw -36vh 3px 2px #fff, -42vw 1vh 1px 0px #fff;
-  animation: zoom 10s alternate infinite;
-}
-
-@keyframes zoom {
-  0% {
-    transform: scale(1);
-  }
-
-  100% {
-    transform: scale(1.5);
-  }
 }
