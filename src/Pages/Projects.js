@@ -1,11 +1,12 @@
-import React from "react";
+import { nonWebProjects, webProjects } from "../data/projects";
+
 import ProjectGrid from "../components/ProjectGrid";
-import { webProjects, nonWebProjects } from "../data/projects";
+import React from "react";
 
 function Projects() {
   return (
-    <div className="max-w-[95%] mx-auto px-3 sm:px-4 py-6 sm:py-8 space-y-8 md:space-y-10">
-      <ProjectGrid title="Web" projects={webProjects} />
+    <div className="space-y-6 sm:space-y-8">
+      <ProjectGrid title="" projects={webProjects} />
       <ProjectGrid title="Non-Web" projects={nonWebProjects} hideImage />
     </div>
   );

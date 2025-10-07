@@ -2,10 +2,27 @@ import React from "react";
 
 function About() {
   return (
-    <div className="max-w-[95%] mx-auto px-4 py-8">
-      <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-300 leading-relaxed">
-        My name is Ricardo I am 20 years old and I have been programming on and off since 2021. I'm from Ecuador and I'm currently studying engineering in Spain and in my free time I like to do fun projects that come to my mind or solve something that I feel it would be fun to have on my computer. Coding for me is an art form and I believe that the best ability of humans is to create. Since I was a kid I have liked to build new things and I am always looking to innovate in something I like.
-      </p>
+    <div className="prose prose-invert max-w-none text-center mx-auto px-4 lg:px-12 xl:px-20">
+        <p className="text-gray-300 leading-relaxed text-base sm:text-lg md:text-lg mx-auto">
+          Software Engineering student in Spain. Passionate about coding, building
+          innovative projects, and improving UI/UX. Interested in how programs
+          work under the hood and exploring programming languages. Focused on
+          creating functional and visually appealing applications.
+        </p>
+        
+        <h3 className="text-gray-100 font-semibold mt-6 mb-3 text-lg sm:text-xl mx-auto">Technical Skills</h3>
+        <ul className="space-y-1 text-gray-300 text-sm sm:text-base mx-auto max-w-md text-center">
+          <li>Programming Languages: JavaScript, Python, Java</li>
+          <li>Web Development: React, Node.js, Express, MongoDB</li>
+          <li>UI/UX: Tailwind CSS, Responsive Design</li>
+          <li>Tools & Technologies: Git, Docker, Linux</li>
+        </ul>
+        
+        <h3 className="text-gray-100 font-semibold mt-6 mb-3 text-lg sm:text-xl mx-auto">Education</h3>
+        <div className="space-y-2 text-gray-300 text-sm sm:text-base mx-auto max-w-md text-center">
+          <p className="font-medium">Bachelor's in Software Engineering</p>
+          <p className="text-gray-400">UMH · 2024 - Present</p>
+        </div>
     </div>
   );
 }

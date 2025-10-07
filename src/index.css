@@ -15,6 +15,8 @@
     /* Keep generic cards transparent; specific styling on .mini-card */
     background: transparent;
     border: 2px solid rgba(75, 85, 99, 0.3);
+    z-index: 1;
+    text-align: center;
   }
 
   .mini-card {
@@ -80,6 +82,15 @@
 
   .btn-secondary {
     @apply bg-gray-700 hover:bg-gray-600 text-white;
+  }
+
+  .dropdown-menu {
+    position: relative;
+    z-index: 999999 !important;
+    backdrop-filter: none !important;
+    background: black !important;
+    border: 2px solid rgba(75, 85, 99, 1) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.9) !important;
   }
 }
 
